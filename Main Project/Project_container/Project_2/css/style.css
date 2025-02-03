@@ -1,0 +1,75 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: hsl(0, 0%, 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(70deg, #a5fecb, #a5feef);
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  transition: all 1s ease-in-out;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(#ffffff91, #ffffff28);
+  box-shadow: -5px 5px 10px 5px #e2e2e21a;
+  border-radius: inherit;
+  transition: all 1s ease-in-out;
+}
+
+.circle:nth-child(1) {
+  inset: 25px;
+  transition-delay: 0.1s;
+}
+.circle:nth-child(2) {
+  inset: 50px;
+  transition-delay: 0.2s;
+}
+.circle:nth-child(3) {
+  inset: 75px;
+  transition-delay: 0.3s;
+}
+.circle:nth-child(4) {
+  inset: 100px;
+  transition-delay: 0.4s;
+}
+.circle:nth-child(5) {
+  inset: 125px;
+  transition-delay: 0.5s;
+}
+
+#circle-container:hover {
+  transform: rotate3d(1, 1, 0, 60deg);
+}
+
+#circle-container:hover .circle:nth-child(1) {
+  transform: translate3d(0, 0, 30px);
+}
+#circle-container:hover .circle:nth-child(2) {
+  transform: translate3d(0, 0, 60px);
+}
+#circle-container:hover .circle:nth-child(3) {
+  transform: translate3d(0, 0, 90px);
+}
+#circle-container:hover .circle:nth-child(4) {
+  transform: translate3d(0, 0, 120px);
+}
+#circle-container:hover .circle:nth-child(5) {
+  transform: translate3d(0, 0, 150px);
+}
