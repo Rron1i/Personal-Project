@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+}
+
+#hoverEffect {
+    background-color: aliceblue;
+    width: 400px;
+    height: 400px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+#hoverGlow {
+    height: 1px;
+    width: 1px;
+    box-shadow: 0px 0px 15px 15px rgb(156, 224, 255);
+    background-color: rgb(156, 224, 255);
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease-in-out;
+}
