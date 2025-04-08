@@ -1,12 +1,15 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&family=Oswald:wght@200..700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Oswald";
     background: #F6F1DE;
 }
 
@@ -51,6 +54,43 @@ nav a:hover, nav a:focus {
     outline: none;
 }
 
+/*
+content section starts from here
+*/
+
+.content {
+    margin-top: 120px;
+    display: flex;
+    color: #3E3F5B;
+}
+.content .profile > p {
+    font-size: 40px;
+    padding: 5px;
+    color: #3E3F5B;
+}
+.content .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content .profile img {
+    background: rgba(0, 0, 0, 0.281);
+    width: 700px;
+    height: 700px;
+    margin-top: -100px;
+    animation: intro 2s ease-in-out forwards;
+    border-radius: 50%;
+}
+.content #profile-about {
+    padding: 30px;
+
+    font-size: 24px;
+}
+
+#profile-about p {
+    padding: 10px;
+}
+
 
 
 /* 
@@ -58,7 +98,7 @@ now main section starts from here
 */
 main {
     width: 100%;
-    margin-top: 75px;
+    margin-top: 300px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -76,13 +116,19 @@ main {
 .container .project-container {
     border-radius: 10px;
     padding: 20px;
-    width: calc(40.333% - 20px);
+    width: calc(33.333% - 20px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-grow: 1;
     color: white;
     height: fit-content;
     overflow: hidden;
-    height: auto;
+    transform-style: preserve-3d;
+    animation: appear 2s linear forwards;
+    animation-timeline: view();
+    opacity: 0;
+}
+.project-container:nth-child(odd) {
+    animation-delay: 0.3s;
 }
 .block {
     display: flex;
@@ -111,7 +157,7 @@ main {
     background: #F6F1DE;
     height: 310%;
     max-width: 300px;
-    color: #fff;
+    color: black;
     visibility: hidden;
     padding: 5px;
     border-radius: 10px;
@@ -131,6 +177,63 @@ img {
     transition: filter 0.5s;
 }
 
+/*  
+footer
+*/
+
+footer {
+    height: 5em;
+    margin-top: 100px;
+    padding: 30px;
+}
+footer a {
+    text-decoration: none;
+    font-size: 60px;
+    padding: 50px;
+    color: #3E3F5B;
+    transition: all 0.3s ease-in-out;
+}
+footer a:hover {
+    font-size: 90px;
+}
+
+
+
+/* Animacionet */
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate3d(100px, 100px, 300px)
+    }
+    30% {
+        opacity: 0.9;
+    }
+    40% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+    80% {
+        opacity: 1;
+    }
+}
+
+@keyframes intro {
+    40% {
+        margin-top: 0;
+    }
+    70% {
+        width: 450px;
+        height: 450px;
+        margin: 0;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        margin-top: 120px;
+    }
+}
+
 /* Responsive */
 @media screen and (max-width: 600px) {
     nav a {
@@ -144,5 +247,8 @@ img {
     }
     .container {
         width: 100%;
+    }
+    footer a {
+        font-size: 30px;
     }
 }
