@@ -211,19 +211,52 @@ footer
 */
 
 footer {
-    height: 5em;
+    height: fit-content;
     margin-top: 100px;
     padding: 30px;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #3e3f5b38;
 }
-footer a {
+footer .div > a {
     text-decoration: none;
     font-size: 60px;
     padding: 50px;
     color: #3E3F5B;
     transition: all 0.3s ease-in-out;
 }
-footer a:hover {
+footer > p {
+    font-size: 60px;
+    color: #3E3F5B;
+}
+footer .div > a:hover {
     font-size: 90px;
+}
+footer .socials {
+    display: flex;
+    gap: 60px;
+}
+footer .socials > a {
+    text-decoration: none;
+    font-size: 60px;
+    height: fit-content;
+    width: fit-content;
+}
+footer .socials > a:nth-child(1) {
+    background: linear-gradient( to right,#833ab4,#fd1d1d,#fcb045); 
+    background-clip: text;
+    color: transparent;
+}
+footer .socials > a:nth-child(2) {
+    background: #3B5998; 
+    background-clip: text;
+    color: transparent;
+}
+footer .socials > a:nth-child(3) {
+    background: yellow; 
+    background-clip: text;
+    color: transparent;
 }
 
 
@@ -277,7 +310,7 @@ footer a:hover {
     .container {
         width: 100%;
     }
-    footer a {
+    footer .div > a {
         font-size: 30px;
     }
     .content #profile > p {
