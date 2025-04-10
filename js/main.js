@@ -1,12 +1,18 @@
-var projekte = document.getElementById("projekte")
-var tooltip = document.getElementsByClassName("tooltip")
-tooltip[0].style.display = "none"
+var movingProfile = document.getElementById('profile');
 
-projekte.onclick = function(){
-    if(tooltip[0].style.display == "none"){
-        tooltip[0].style.display = "block"
-    }
-    else {
-        tooltip[0].style.display = "none"
-    }
+// checks if the user is on mobile device
+function isMobileDevice() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    return /iphone|ipod|ipad|android|blackberry|windows phone/.test(userAgent) || window.innerWidth <= 768;
+}
+
+if (!isMobileDevice() && movingProfile) {
+    window.addEventListener('scroll', function() {
+
+        if (window.scrollY >= 150) {
+            movingProfile.style.transform = "translateY(260px)";
+        } else {
+            movingProfile.style.transform = "translateY(0)";
+        }
+    });
 }
