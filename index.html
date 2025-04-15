@@ -9,17 +9,34 @@
   </head>
   <body>
     <div id="top"></div>
+
+<!-- modal for contact form -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+        <h2>Contact Us</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+
     <header>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#" id="openModalBtn">Contact</a></li>
         </ul>
       </nav>
     </header>
     <!-- merr foto mat mdhaja per me ba cover 100% width-->
     <div id="slideWrapper">
+      <div class="wrapper">
       <div class="slide">
         <img src="img/calc.png" id="slideImg">
       </div>
@@ -47,7 +64,12 @@
       <div class="slide">
         <img src="img/todo.png" id="slideImg">
       </div>
+      </div>
+    <div class="wrapper">
+      <button id="arrowLeft" onclick="plusSlides(-1)">←</button>
       <p>Slider showcasing some projects!</p>
+      <button id="arrowRight" onclick="plusSlides(1)">→</button>
+    </div>
   </div>
     <div class="content">
       <section class="section s1">

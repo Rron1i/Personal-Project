@@ -18,6 +18,7 @@ if (!isMobileDevice() && movingProfile) {
 }
 
 
+// slide mover starts here
 var slideIndex = 1;
 
 function showSlides(n) {
@@ -45,3 +46,24 @@ function plusSlides(n) {
 }
 
 setInterval(plusSlides, 3000, 1);
+
+// modal
+
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('modalOverlay');
+
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
