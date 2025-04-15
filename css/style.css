@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+textarea {
+    resize: none;
+}
+
 body {
     font-family: "Oswald";
     background: #F6F1DE;
@@ -53,6 +57,30 @@ nav a:hover, nav a:focus {
     color: #3E3F5B;
     outline: none;
 }
+/*
+custom scroller starts here
+*/
+
+body::-webkit-scrollbar {
+    height: 5px;
+    width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #F6F1DE;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #3E3F5B;
+    border-radius: 10px;
+    height: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #2c2d45;
+}
+
+
 
 /*
 modal starts here
