@@ -53,6 +53,8 @@ showSlides(slideIndex);
 resetAutoSlide();
 
 
+
+
 // modal
 
     const openBtn = document.getElementById('openModalBtn');
