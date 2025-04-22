@@ -9,11 +9,9 @@ function isMobileDevice() {
 if (!isMobileDevice() && movingProfile) {
     window.addEventListener('scroll', function() {
 
-        if (window.scrollY >= 530) {
-            movingProfile.style.transform = "translateY(260px)";
-        } else {
-            movingProfile.style.transform = "translateY(0)";
-        }
+        var s = window.scrollY/4;
+                
+                movingProfile.style.transform = `translateY(${s}px)`;
     });
 }
 
