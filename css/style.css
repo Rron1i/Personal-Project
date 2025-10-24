@@ -3,6 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --bgColor: #F9F9F9;
+    --textColor: #2A2A2A;
+    --primaryColor: #264653;
+    --secondaryColor: #E76F51;
+}
+::selection {
+    background-color: #E76F51;
+    color: #F9F9F9;
 }
 html {
     scroll-behavior: smooth;
@@ -14,15 +22,18 @@ textarea {
 
 body {
     font-family: "Oswald";
-    background: #F6F1DE;
+    background: var(--bgColor);
 }
 .no-scroll {
     overflow: hidden;
 }
+.important {
+    color: var(--primaryColor);
+}
 
 /* navbar */
 nav {
-    background-color: #3E3F5B;
+    background-color: var(--primaryColor);
     overflow: hidden;
     position: fixed;
     top: 2%;
@@ -57,8 +68,8 @@ nav a {
 }
 
 nav a:hover, nav a:focus {
-    background-color: #F6F1DE;
-    color: #3E3F5B;
+    background-color: var(--bgColor);
+    color: var(--textColor);
     outline: none;
 }
 /*
@@ -71,11 +82,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #F6F1DE;
+    background: var(--bgColor);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #3E3F5B;
+    background: var(--textColor);
     border-radius: 10px;
     height: 5px;
 }
@@ -105,7 +116,7 @@ modal starts here
 
 
   .modal-content {
-    background: #F6F1DE;
+    background: var(--bgColor);
     padding: 20px;
     border-radius: 6px;
     width: 90%;
@@ -114,7 +125,7 @@ modal starts here
   }
 
   .modal-content > h2 {
-    color: #3E3F5B;
+    color: var(--textColor);
   }
 
   .close-btn {
@@ -137,8 +148,8 @@ modal starts here
   }
 
   .modal-content form button {
-    background-color: #3E3F5B;
-    color: #F6F1DE;
+    background-color: var(--textColor);
+    color: var(--bgColor);
     border: none;
     padding: 10px;
     width: 100%;
@@ -157,13 +168,14 @@ slider starts here
 
 #slideWrapper {
     margin-top: 150px;
+    margin-bottom: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 600px;
     width: 100%;
     flex-direction: column;
-    color: #3E3F5B;
+    color: var(--textColor);
     font-size: 40px;
 }
 .wrapper {
@@ -174,7 +186,7 @@ slider starts here
     border: none;
     background: none;
     cursor: pointer;
-    color: #3E3F5B;
+    color: var(--textColor);
 }
 #slideImg {
     width: 100%;
@@ -186,14 +198,13 @@ content section starts from here
 */
 
 .content {
-    margin-top: 120px;
     display: flex;
-    color: #3E3F5B;
+    color: var(--textColor);
+    overflow: hidden;
 }
 .content #profile > p {
     font-size: 40px;
     padding: 5px;
-    color: #3E3F5B;
 }
 .content .profile-container {
     display: flex;
@@ -224,6 +235,11 @@ content section starts from here
 
 #profile-about p {
     padding: 10px;
+}
+
+#profile-about > p:hover {
+    color: var(--secondaryColor);
+    transition: color 0.2s ease-in-out;
 }
 
 
@@ -289,7 +305,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #F6F1DE;
+    background: var(--bgColor);
     height: 310%;
     max-width: 300px;
     color: black;
@@ -323,19 +339,19 @@ footer {
     padding-bottom: 70px;
     display: flex;
     justify-content: space-between;
-    background-color: #3e3f5b38;
+    background-color: var(--primaryColor);
     flex-wrap: wrap;
 }
 footer .div > a {
     text-decoration: none;
     font-size: 60px;
     padding: 50px;
-    color: #3E3F5B;
+    color: var(--bgColor);
     transition: all 0.3s ease-in-out;
 }
 footer > p {
     font-size: 60px;
-    color: #3E3F5B;
+    color: var(--bgColor);
 }
 footer .div > a:hover {
     font-size: 90px;
@@ -365,6 +381,32 @@ footer .socials > a:nth-child(3) {
     background-clip: text;
     color: transparent;
 }
+
+/*
+about footer 
+*/
+#about-footer {
+    height: fit-content;
+    margin-top: 100px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primaryColor);
+    flex-wrap: wrap;
+}
+.about-footer-element {
+    color: var(--bgColor);
+    font-size: 30px;
+}
+.about-footer-element > a {
+    color: var(--bgColor);
+    text-decoration: none;
+    transition: all 0.2444s ease-in;
+}
+.about-footer-element > a:hover {
+    margin-left: 10px;
+}
+
 
 
 
