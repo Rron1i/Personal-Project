@@ -1,6 +1,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to top right, #74ebd5, #ACB6E5);
+  --bg-color: linear-gradient(to top right, #74ebd5, #ACB6E5);
+  background: var(--bg-color);
   color: #333;
   display: flex;
   flex-direction: column;
@@ -9,6 +10,23 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 30px;
+  transition: background 2s ease;
+}
+
+.weather-rain {
+  --bg-color: linear-gradient(to bottom, #4A90E2, #2C3E50);
+}
+
+.weather-snow {
+  --bg-color: linear-gradient(to bottom, #E0F7FA, #B2EBF2);
+}
+
+.weather-cloud {
+  --bg-color: linear-gradient(to bottom, #D3D3D3, #A9A9A9);
+}
+
+.weather-sunny {
+  --bg-color: linear-gradient(to top right, #74ebd5, #ACB6E5);
 }
 
 h1 {

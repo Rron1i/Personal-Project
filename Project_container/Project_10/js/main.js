@@ -19,6 +19,23 @@ cityInput.addEventListener('keypress', (event) => {
   });
   
 
+function updateBackground(desc) {
+  // pjesa per background me animacion
+  // Remove existing weather classes
+  document.body.classList.remove('weather-rain', 'weather-snow', 'weather-cloud', 'weather-sunny');
+
+  if (desc.includes("rain") || desc.includes("storm")) {
+    document.body.classList.add('weather-rain');
+  } else if (desc.includes("snow")) {
+    document.body.classList.add('weather-snow');
+  } else if (desc.includes("cloud")) {
+    document.body.classList.add('weather-cloud');
+  } else {
+    document.body.classList.add('weather-sunny');
+  }
+  
+}
+
 async function getWeather(city) {
   const url = `https://wttr.in/${city}?format=j1`;
  weatherDiv.innerHTML = '<p>Loading...</p>'; // mesazh ngarkimi
@@ -51,20 +68,7 @@ async function getWeather(city) {
                               <p><strong>Temperature:</strong> ${tempC}°C</p>
                             `;
 
-    // pjesa per dillin
-            if (desc.includes("rain") || desc.includes("storm")) {
-          sun.style.background = 'radial-gradient(circle at center, #4A90E2, #2C3E50)';
-          sun.style.boxShadow = '0 0 20px rgba(74, 144, 226, 0.5)';
-        } else if (desc.includes("snow")) {
-          sun.style.background = 'radial-gradient(circle at center, #E0F7FA, #B2EBF2)';
-          sun.style.boxShadow = '0 0 20px rgba(224, 247, 250, 0.5)';
-        } else if (desc.includes("cloud")) {
-          sun.style.background = 'radial-gradient(circle at center, #D3D3D3, #A9A9A9)'
-          sun.style.boxShadow = '0 0 20px rgba(169, 169, 169, 0.5)';
-        } else {
-          sun.style.background = 'radial-gradient(circle at center, #FFD700, #FFA500)';
-          sun.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.5)';
-        }
+    updateBackground(desc);
 
     saveRecentCity(city);
 
@@ -77,11 +81,11 @@ async function getWeather(city) {
 function saveRecentCity(city) {
     let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
   
-    // Nëse qyteti ekziston, hiqe dhe shtoje në fillim
+    // Nese qyteti ekziston, hiqe dhe shtoje në fillim
     recentCities = recentCities.filter(c => c.toLowerCase() !== city.toLowerCase());
     recentCities.unshift(city); // Shto në fillim
   
-    // Mbaj vetëm 5 qytetet e fundit
+    // Maj veq 5 qytetet e fundit
     if (recentCities.length > 5) {
       recentCities = recentCities.slice(0, 5);
     }
@@ -113,20 +117,26 @@ showRecentCities();
   
 
 const sun = document.getElementById('sun');
-    let lastX = window.innerWidth / 2;
-    let lastY = window.innerHeight / 2;
+let currentX = window.innerWidth / 2;
+let currentY = window.innerHeight / 2;
+let targetX = currentX;
+let targetY = currentY;
 
-    document.addEventListener('mousemove', (e) => {
-      const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+function animate() {
+  const lerpFactor = 0.10; // Adjust for smoothness/speed
+  currentX += (targetX - currentX) * lerpFactor;
+  currentY += (targetY - currentY) * lerpFactor;
 
-      const speed = Math.min(0.3 + distance / 100, 1);
+  sun.style.left = `${currentX}px`;
+  sun.style.top = `${currentY}px`;
 
-      lastX += dx * speed;
-      lastY += dy * speed;
+  requestAnimationFrame(animate);
+}
 
-      sun.style.left = `${lastX}px`;
-      sun.style.top = `${lastY}px`;
-    });
+document.addEventListener('mousemove', (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+});
+
+animate();
 
