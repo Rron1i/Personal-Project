@@ -3,31 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather App</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 30px;
-    }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-    }
-    #weather {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Check the Weather</h1>
+  <!-- weather app, nuk osht shum e sakt sepse api pa pagese :( -->
+  <h1>Check the Weather</h1>
+  <div>
     <input type="text" id="cityInput" placeholder="Enter city name">
     <button id="searchBtn">Search</button>
+  </div>
 
-    <div id="weather"></div>
+  <div id="weather"></div>
 
-    <h3>Recent Searches</h3>
-    <div id="recent"></div>
+  <h3 style="margin-top: 40px;">Recent Searches</h3>
+  <div id="recent"></div>
 
+
+
+  <div id="sun"></div>
   <script src="js/main.js"></script>
 </body>
 </html>

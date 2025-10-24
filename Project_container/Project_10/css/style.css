@@ -1,0 +1,135 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to top right, #74ebd5, #ACB6E5);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease;
+}
+
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(0,123,255,0.5);
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#weather {
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+  animation: fadeInUp 0.5s ease;
+}
+
+#weather img {
+  width: 60px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#recent {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+#recent button {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#recent button:hover {
+  background-color: #ddd;
+}
+
+#sun {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at center, #FFD700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
+    pointer-events: none;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@media (max-width: 480px) {
+  input {
+        width: 80%;
+  }
+
+  #weather {
+        padding: 15px;
+        font-size: 15px;
+  }
+}
